@@ -1,0 +1,9 @@
+*.class
+*.jar
+clojure/.lein-*
+clojure/.nrepl-port
+clojure/checkouts
+clojure/classes
+clojure/target
+pom.xml
+pom.xml.asc
