@@ -9,4 +9,5 @@
   (seq (compress "1f")) => [0x1f]
   (seq (compress "1fA")) => [0x1f, (int \A)]
   (seq (compress "z1f")) => [(int \z), 0x1f]
+  (seq (compress "00")) => [(int \0), (int \0)]
   (seq (compress "41")) => [(int \4), (int \1)])

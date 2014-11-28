@@ -4,7 +4,7 @@
   (set (map #(->> % (format "%x") .getBytes first byte) (range 16))))
 
 (def printable-ascii
-  (set (map byte (range (int \!) 127))))
+  (conj (set (map byte (range (int \!) 127))) (byte 0)))
 
 (defn hex-encode
   "Takes to bytes and hex-encodes them into one
