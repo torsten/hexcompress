@@ -1,4 +1,3 @@
-var sinon = require('sinon');
 require('should');
 
 var hexcompress = require('../lib/hexcompress');
@@ -39,5 +38,9 @@ describe('hexcompress.decompress', function() {
 
   it('keeps 41', function() {
     hexcompress.decompress(new Buffer("41")).should.equal("41");
+  });
+
+  it('unpacks trailing zeroes', function() {
+    hexcompress.decompress(new Buffer([0x01, 0x02])).should.equal("0102");
   });
 });

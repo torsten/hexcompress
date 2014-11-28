@@ -7,8 +7,8 @@ function decompress(buffer) {
   for (var i=0; i < buffer.length; i++) {
     var byte = buffer[i];
     // 33: !, 126: ~
-    if (byte != 0 && (byte < 33 || byte > 126)) {
-      var hex = byte.toString(16)
+    if (byte !== 0 && (byte < 33 || byte > 126)) {
+      var hex = byte.toString(16);
       if (byte < 16) {
         hex = "0" + hex;
       }
@@ -20,7 +20,7 @@ function decompress(buffer) {
       result[r] = byte;
       r++;
     }
-  };
+  }
 
   return result.toString("ascii", 0, r);
 }
