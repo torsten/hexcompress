@@ -1,4 +1,4 @@
-(defproject io.torsten/hexcompress "0.0.2"
+(defproject io.torsten/hexcompress "0.0.3"
   :description "Effective compression for short ASCII strings with many (hex) numbers."
   :url "https://github.com/torsten/hexcompress/"
   :license {:name "MIT License"

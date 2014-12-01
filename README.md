@@ -17,10 +17,10 @@ Currently, compression is optional. Uncompressing the data `"1337"` will just de
 
 ## Libraries
 
-The Clojure version of hexcompress is currently released via [Clojars](https://clojars.org/io.torsten/hexcompress). The latest release is `0.0.2`:
+The Clojure version of hexcompress is currently released via [Clojars](https://clojars.org/io.torsten/hexcompress). The latest release is `0.0.3`:
 
 ```clojure
-[io.torsten/hexcompress "0.0.2"]
+[io.torsten/hexcompress "0.0.3"]
 ```
 
 The Javascript version is in the `javascript` subdirectory.
