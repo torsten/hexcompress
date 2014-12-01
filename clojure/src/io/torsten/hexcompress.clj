@@ -34,3 +34,15 @@
             [(conj result next) next]))
         [[] nil]
         (.getBytes string)))))
+
+(defn decompress
+  "Decompress bytes into a new string."
+  [bytes]
+  (new String
+    (byte-array
+      (mapcat
+        (fn [byte]
+          (if (not (printable-ascii byte))
+            (map int (format "%02x" byte))
+            [byte]))
+        bytes))))
