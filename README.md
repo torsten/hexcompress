@@ -2,12 +2,38 @@
 
 # Hexcompress
 
-Hexcompress is good to compress short-ish ASCII strings
-that contain many numbers or hex-encoded bytes.
+Hexcompress **is not a generic compression algorithm**.
 
-For example the string "ffaa12" (7 bytes) will compress to "\xff\xaa\x12" (4) thats 50% compression!
+Instead, hexcompress is very good at compressing short-ish (~ 1-500 characters) ASCII **strings that contain many numbers** or hex-encoded bytes.
 
-Hexcompress is currently released via [Clojars](https://clojars.org/hexcompress). The latest release is `0.0.1`.  I am not yet sure if it is useful.
+For example the string `"caffeebabe"` (10&nbsp;bytes) will compress to `"\xCA\xFF\xEE\xBA\xBE"` (5&nbsp;bytes), that's 50% compression!
+
+Mixed strings are encoded like so: `"eat more beef!!1111"` (19&nbsp;bytes) will become `"\xEAt more \xBE\xEF!!\x11\x11"` (14&nbsp;bytes), that's 26% compression.
+
+Since printable ASCII characters are preserved as is, that means **0% worst-case compression** when no hex-numbers are present, at least your data won't get any bigger!
+
+Currently, compression is optional. Uncompressing the data `"1337"` will just decompress to the string `"1337"` which makes it easy to integrate with new code that may or may not compress yet. (This fact may change in the future)
+
+
+## Libraries
+
+The Clojure version of hexcompress is currently released via [Clojars](https://clojars.org/io.torsten/hexcompress). The latest release is `0.0.2`:
+
+```clojure
+[io.torsten/hexcompress "0.0.2"]
+```
+
+The Javascript version is in the `javascript` subdirectory.
+
+
+## Related Work
+
+**smaz**  
+https://github.com/antirez/smaz  
+Did not perform well in our case because the data contained a lot of high-entropy hexadecimal characters which usually yielded negative compression.
+
+**zlib/deflate**  
+We saw about ~15% compression with deflate, hexcompress usually produced ~30% compression for our data.
 
 
 ## License
